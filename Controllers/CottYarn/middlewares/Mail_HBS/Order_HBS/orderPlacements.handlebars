@@ -1,0 +1,138 @@
+<html>
+  <head>
+    <style>
+
+      .table { border: 1px solid #ccc; border-collapse: collapse; margin: 0;
+      padding: 0; width: 100%; table-layout: fixed; } 
+      .table .caption { font-size:
+      1.5em; margin: .5em 0 .75em; } 
+      .table .tr { background-color: #f8f8f8;
+      border: 1px solid #ddd; padding: .35em; } 
+      .table .th, .table .td { padding:
+      .625em; text-align: center;
+      width: 8rem; } 
+      .table .th 
+      { font-size: .85em;width:8rem; letter-spacing:
+      .1em; text-transform: uppercase; } 
+      @media screen and (max-width: 600px) {
+      .table { border: 0; } 
+      .table .caption { font-size: 1.3em; } .table .thead {
+      border: none; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow:
+      hidden; padding: 0; position: absolute; width: 1px; } 
+      .table .tr {
+      border-bottom: 3px solid #ddd; display: block; margin-bottom: .625em; }
+      .table .td { border-bottom: 1px solid #ddd; display: block; font-size: .8em;
+      text-align: right; } 
+      .table .td::before { content:
+      attr(data-label); float: left; font-weight: bold; text-transform:
+      uppercase; } 
+      .table .td:last-child { border-bottom: 0; } }
+    </style>
+  </head>
+  <body
+    style="background-color:#e2e1e0;font-family: Open Sans, sans-serif;font-size:100%;font-weight:400;line-height:1.4;color:#000;"
+  >
+    <table
+      style="max-width:670px;margin:50px auto 10px;background-color:#fff;padding:50px;-webkit-border-radius:3px;-moz-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);-moz-box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24);box-shadow:0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24); border-top: solid 10px green;"
+    >
+      <thead>
+        <tr>
+          {{!-- <th style="text-align:left;"><img style="max-width: 150px;" src="{{cid}}" alt="Cottyarn.com"></th> --}}
+          <h2>Cottyarn.com</h2>
+          <th style="text-align:right;font-weight:400;margin-left:-3rem;">{{current_Date}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="height:35px;"></td>
+        </tr>
+        <tr>
+          <td colspan="2" style="border: solid 1px #ddd; padding:10px 20px;">
+            <p style="font-size:14px;margin:0 0 6px 0;"><span
+                style="font-weight:bold;display:inline-block;min-width:150px"
+              >Order status</span><b
+                style="color:green;font-weight:normal;margin:0"
+              >Success</b></p>
+            <p style="font-size:14px;margin:0 0 0 0;"><span
+                style="font-weight:bold;display:inline-block;min-width:146px"
+              >Order amount</span>
+               &#8377; {{totalAmt}}</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="height:35px;"></td>
+        </tr>
+        <tr style="display: flex;flexDirection:column">
+          <td style="width:50%;padding:20px;vertical-align:top">
+            <p style="margin:0 0 10px 0;padding:0;font-size:14px;"><span
+                style="display:block;font-weight:bold;font-size:13px"
+              >Name</span>{{name}}</p>
+            <p style="margin:0 0 10px 0;padding:0;font-size:14px;"><span
+                style="display:block;font-weight:bold;font-size:13px;"
+              >Email</span>{{email}}</p>
+            <p style="margin:0 0 10px 0;padding:0;font-size:14px;"><span
+                style="display:block;font-weight:bold;font-size:13px;"
+              >Phone</span>{{Phone}}</p>
+            <p style="margin:0 0 10px 0;padding:0;font-size:14px;"><span
+                style="display:block;font-weight:bold;font-size:13px;"
+              >ID No.</span>{{invoice}}</p>
+            <p style="margin:0 0 10px 0;padding:0;font-size:14px;"><span
+                style="display:block;font-weight:bold;font-size:13px;"
+              >PIN Code</span>{{PIN}}</p>
+
+          </td>
+          <td style="width:50%;padding:20px;vertical-align:top;margin-left:-4rem">
+            <p style="margin:0 0 10px 0;padding:0;font-size:14px;"><span
+                style="display:block;font-weight:bold;font-size:13px;"
+              >Address</span>{{Address}}
+              {{PIN}}</p>
+            <p style="margin:0 0 10px 0;padding:0;font-size:14px;"><span
+                style="display:block;font-weight:bold;font-size:13px;"
+              >Number of Items</span>{{count}}</p>
+          </td>
+        </tr>
+      </tbody>
+
+     
+        <table class="table">
+          <caption class="caption">Ordered Items List</caption>
+          <thead class="thead">
+            <tr class="tr">
+              <th class="th" scope="col">Product Name</th>
+              <th class="th" scope="col">Single Piece Rate</th>
+              <th class="th" scope="col">Quantity (Dozens)</th>
+              {{!-- <th class="th" scope="col">Number of Items</th> --}}
+              {{!-- <th class="th" scope="col">Total</th> --}}
+
+            </tr>
+          </thead class="thead">
+          <tbody class="tbody">
+             {{#each items_List}}
+            <tr class="tr">
+              <td class="td" data-label="Account">{{this.productName}}</td>
+              <td class="td" data-label="Due Date">{{this.prize}}</td>
+              <td class="td" data-label="Amount">{{this.dozens}} Dozens</td>
+              {{!-- <td class="td" data-label="Period">{{this.dozens}}</td> --}}
+              {{!-- <td class="td" data-label="Period">{{{this.prize}}}*{{{this.dozens}}}</td> --}}
+
+            </tr> {{/each}}
+
+          </tbody>
+        </table>
+     
+
+      <tfooter>
+        <tr>
+          <td colspan="2" style="font-size:14px;padding:50px 15px 0 15px;">
+            <strong style="display:block;margin:0 0 10px 0;">Regards</strong>
+            Cottyarn Group<br />
+            Solapur, Maharashtra, India<br /><br />
+            <b>Email:</b>
+            cottyarn3@gmail.com
+          </td>
+        </tr>
+      </tfooter>
+    </table>
+  </body>
+
+</html>

@@ -1,0 +1,27 @@
+{
+  "name": "plasms",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "config": "^3.3.6",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "fs": "^0.0.1-security",
+    "gmail-node": "^1.2.0",
+    "handlebars": "^4.7.7",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1",
+    "node-schedule": "^2.0.0",
+    "nodemailer": "^6.6.0",
+    "nodemailer-express-handlebars": "^4.0.0",
+    "nodemon": "^2.0.12",
+    "utc-to-indiantime": "^1.0.7"
+  }
+}
